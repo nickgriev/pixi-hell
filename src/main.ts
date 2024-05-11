@@ -45,16 +45,16 @@ import './style.css';
   app.stage.addChild(backgroundContainer);
   await Assets.load(displacementImage);
   const displacementSprite = Sprite.from(displacementImage);
-  const blur = new DisplacementFilter({
+  const displacement = new DisplacementFilter({
     sprite: displacementSprite,
     scale: 3,
   });
 
   let circle = new Graphics().circle(0, 0, 2).fill('white');
 
-  circle.filters = [blur];
+  circle.filters = [displacement];
 
-  backgroundContainer.filters = [blur];
+  backgroundContainer.filters = [displacement];
 
   app.stage.addChild(circle);
 
